@@ -1,19 +1,21 @@
 <script setup lang="ts">
-import { watch, ref } from 'vue';
+import { watch, ref, computed } from 'vue';
 import { useFileStore } from '../stores/fileStore';
 import CustomSelect from './CustomSelect.vue';
+import { useI18n } from 'vue-i18n';
 
+const { t } = useI18n();
 const fileStore = useFileStore();
 
 const selectedLanguage = ref('');
 const selectedType = ref('all');
 
 // Define options for Select
-const typeOptions = [
-  { label: '所有軌道類型', value: 'all' },
-  { label: '音訊 (Audio)', value: 'audio' },
-  { label: '字幕 (Subtitle)', value: 'subtitles' }
-];
+const typeOptions = computed(() => [
+  { label: t('sidebar.all_types'), value: 'all' },
+  { label: t('sidebar.audio'), value: 'audio' },
+  { label: t('sidebar.subtitles'), value: 'subtitles' }
+]);
 
 watch([selectedLanguage, selectedType], ([newLang, newType]) => {
   fileStore.setPreviewCriteria({
@@ -52,20 +54,20 @@ function applyDefault() {
   <div class="px-4 py-2 space-y-4">
     <!-- Batch Operations -->
     <div class="space-y-3">
-      <h3 class="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider">批量操作</h3>
+      <h3 class="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider">{{ $t('sidebar.batch_ops') }}</h3>
 
       <!-- Filter Controls -->
       <div class="space-y-5">
         <!-- Language Select -->
         <div class="space-y-2">
-          <label class="block text-xs font-bold text-gray-500 dark:text-gray-400 tracking-wide ml-1">目標語言</label>
-          <CustomSelect v-model="selectedLanguage" :options="fileStore.availableLanguages" placeholder="選擇語言" />
+          <label class="block text-xs font-bold text-gray-500 dark:text-gray-400 tracking-wide ml-1">{{ $t('sidebar.target_language') }}</label>
+          <CustomSelect v-model="selectedLanguage" :options="fileStore.availableLanguages" :placeholder="$t('sidebar.select_language')" />
         </div>
 
         <!-- Type Select -->
         <div class="space-y-2">
-          <label class="block text-xs font-bold text-gray-500 dark:text-gray-400 tracking-wide ml-1">軌道類型</label>
-          <CustomSelect v-model="selectedType" :options="typeOptions" placeholder="選擇類型" />
+          <label class="block text-xs font-bold text-gray-500 dark:text-gray-400 tracking-wide ml-1">{{ $t('sidebar.track_type') }}</label>
+          <CustomSelect v-model="selectedType" :options="typeOptions" :placeholder="$t('sidebar.select_type')" />
         </div>
       </div>
 
@@ -79,7 +81,7 @@ function applyDefault() {
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
               d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
           </svg>
-          設為預設
+          {{ $t('sidebar.set_default') }}
         </button>
         <button @click="applyRemove" @mouseenter="setActionPreview('remove')" @mouseleave="setActionPreview(null)"
           :disabled="!selectedLanguage"
@@ -89,7 +91,7 @@ function applyDefault() {
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
               d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
           </svg>
-          批量移除
+          {{ $t('sidebar.batch_remove') }}
         </button>
       </div>
 
@@ -102,7 +104,7 @@ function applyDefault() {
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
             d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
         </svg>
-        重置所有變更
+        {{ $t('sidebar.reset_changes') }}
       </button>
     </div>
   </div>

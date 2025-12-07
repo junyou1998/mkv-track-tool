@@ -96,11 +96,11 @@ function getRowClass(track: MkvTrack) {
             <thead
                 class="text-[10px] text-gray-500 uppercase bg-gray-100 dark:bg-gray-800/50 border-b border-gray-200 dark:border-gray-700">
                 <tr>
-                    <th class="px-3 py-2 w-12 text-center">保留</th>
-                    <th class="px-3 py-2 w-10 text-center">類型</th>
-                    <th class="px-3 py-2">軌道資訊</th>
-                    <th class="px-3 py-2">語言</th>
-                    <th class="px-3 py-2 text-right">標記</th>
+                    <th class="px-3 py-2 w-12 text-center">{{ $t('tracks.keep') }}</th>
+                    <th class="px-3 py-2 w-10 text-center">{{ $t('tracks.type') }}</th>
+                    <th class="px-3 py-2">{{ $t('tracks.info') }}</th>
+                    <th class="px-3 py-2">{{ $t('tracks.language') }}</th>
+                    <th class="px-3 py-2 text-right">{{ $t('tracks.tags') }}</th>
                 </tr>
             </thead>
             <tbody class="divide-y divide-gray-200 dark:divide-gray-700/50">
@@ -151,17 +151,17 @@ function getRowClass(track: MkvTrack) {
                             <button @click="toggleDefault(track)"
                                 class="px-1.5 py-0.5 rounded text-[10px] border transition-colors flex items-center gap-1"
                                 :class="isDefault(track) ? 'bg-yellow-500/10 text-yellow-600 dark:text-yellow-400 border-yellow-500/20 hover:bg-yellow-500/20' : 'border-transparent text-gray-500 dark:text-gray-600 hover:text-gray-700 dark:hover:text-gray-400 opacity-50 hover:opacity-100'"
-                                title="切換預設軌道">
+                                :title="$t('tracks.default')">
                                 <span v-if="isDefault(track)" class="w-1.5 h-1.5 rounded-full bg-yellow-400"></span>
-                                預設
+                                {{ $t('tracks.default') }}
                             </button>
 
                             <button @click="toggleForced(track)"
                                 class="px-1.5 py-0.5 rounded text-[10px] border transition-colors flex items-center gap-1"
                                 :class="isForced(track) ? 'bg-red-500/10 text-red-600 dark:text-red-400 border-red-500/20 hover:bg-red-500/20' : 'border-transparent text-gray-500 dark:text-gray-600 hover:text-gray-700 dark:hover:text-gray-400 opacity-50 hover:opacity-100'"
-                                title="切換強制軌道">
+                                :title="$t('tracks.forced')">
                                 <span v-if="isForced(track)" class="w-1.5 h-1.5 rounded-full bg-red-400"></span>
-                                強制
+                                {{ $t('tracks.forced') }}
                             </button>
                         </div>
                     </td>

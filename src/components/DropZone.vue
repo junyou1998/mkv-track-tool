@@ -62,9 +62,9 @@ function openFileDialog() {
 
       <div class="space-y-1">
         <h3 class="text-sm font-medium text-gray-700 dark:text-gray-200">
-          拖放檔案至此 或 <span class="text-blue-500 font-semibold hover:underline">點擊選擇</span>
+          {{ $t('dropzone.title') }} <span class="text-blue-500 font-semibold hover:underline">{{ $t('dropzone.click_select') }}</span>
         </h3>
-        <p class="text-[10px] text-gray-400">支援檔案多選</p>
+        <p class="text-[10px] text-gray-400">{{ $t('dropzone.support_hint') }}</p>
       </div>
     </div>
   </div>

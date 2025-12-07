@@ -1,0 +1,73 @@
+{
+    "app": {
+        "change_language": "言語を切替",
+        "title": "MKV Track Tool",
+        "version": "バージョン",
+        "queue": "処理キュー",
+        "idle": "アイドル",
+        "processing": "処理中",
+        "ready": "準備完了",
+        "start_processing": "処理開始",
+        "no_files": "ファイルなし",
+        "processing_progress": "処理中...",
+        "release_to_import": "離してインポート",
+        "drag_region": "ここにファイルをドラッグ",
+        "clear_list": "リストをクリア"
+    },
+    "dropzone": {
+        "title": "ここにファイルをドラッグ または",
+        "click_select": "クリックして選択",
+        "support_hint": "複数のファイル選択に対応"
+    },
+    "sidebar": {
+        "batch_ops": "一括操作",
+        "target_language": "ターゲット言語",
+        "select_language": "言語を選択",
+        "track_type": "トラックタイプ",
+        "select_type": "タイプを選択",
+        "all_types": "すべてのタイプ",
+        "audio": "音声 (Audio)",
+        "subtitles": "字幕 (Subtitle)",
+        "set_default": "デフォルトに設定",
+        "batch_remove": "一括削除",
+        "reset_changes": "すべての変更をリセット"
+    },
+    "filelist": {
+        "status": {
+            "ready": "準備完了",
+            "processing": "処理中",
+            "done": "完了",
+            "error": "エラー",
+            "pending": "待機中",
+            "scanning": "スキャン中"
+        },
+        "tracks_count": "トラック",
+        "remove_file": "ファイルを削除",
+        "thumbnail": "サムネイル"
+    },
+    "tracks": {
+        "keep": "保持",
+        "type": "タイプ",
+        "info": "トラック情報",
+        "language": "言語",
+        "tags": "タグ",
+        "default": "標準",
+        "forced": "強制"
+    },
+    "about": {
+        "title": "このプロジェクトについて",
+        "check_update": "更新を確認",
+        "checking": "確認中...",
+        "latest": "最新バージョンです",
+        "changelog": "更新履歴",
+        "description": "MKVトラックを素早く整理するための、シンプルで強力なオープンソースのクロスプラットフォームツールです。",
+        "developer_info": "開発者情報",
+        "developer_desc": "こんにちは、Junyouです！このプロジェクトは、面倒なファイル整理作業を簡単にするために作られました。もしこのツールが役立ったなら、コーヒーを一杯奢っていただけると、今後の開発とメンテナンスの励みになります！",
+        "thank_you": "ご支援ありがとうございます"
+    },
+    "theme": {
+        "light": "ライトモード",
+        "dark": "ダークモード",
+        "system": "システム準拠"
+    }
+}

@@ -3,7 +3,9 @@ import { useFileStore } from '../stores/fileStore';
 import { storeToRefs } from 'pinia';
 import { ref } from 'vue';
 import TrackList from './TrackList.vue';
+import { useI18n } from 'vue-i18n';
 
+const { t } = useI18n();
 const fileStore = useFileStore();
 const { files } = storeToRefs(fileStore);
 
@@ -28,15 +30,7 @@ function getStatusColor(status: string) {
 }
 
 function getStatusText(status: string) {
-  switch (status) {
-    case 'ready': return '準備就緒';
-    case 'processing': return '處理中';
-    case 'done': return '已完成';
-    case 'error': return '錯誤';
-    case 'pending': return '等待中';
-    case 'scanning': return '掃描中';
-    default: return status;
-  }
+  return t(`filelist.status.${status}`);
 }
 
 // Hover Preview Logic
@@ -108,7 +102,7 @@ function updatePreviewPosition(event: MouseEvent) {
                 <span>{{ formatSize(file.size) }}</span>
                 <span v-if="file.info" class="flex items-center gap-1">
                   <span class="w-1 h-1 rounded-full bg-gray-500"></span>
-                  {{ file.info.tracks.length }} tracks
+                  {{ file.info.tracks.length }} {{ $t('filelist.tracks_count') }}
                 </span>
               </div>
             </div>
@@ -122,7 +116,7 @@ function updatePreviewPosition(event: MouseEvent) {
 
             <button @click.stop="fileStore.removeFile(file.id)"
               class="p-2 text-gray-500 hover:text-red-400 hover:bg-red-400/10 rounded-lg transition-all opacity-0 group-hover:opacity-100 cursor-pointer"
-              title="移除檔案">
+              :title="$t('filelist.remove_file')">
               <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
                 stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />

@@ -1,0 +1,73 @@
+{
+    "app": {
+        "change_language": "切換語言",
+        "title": "MKV Track Tool",
+        "version": "版本",
+        "queue": "處理隊列",
+        "idle": "閒置",
+        "processing": "處理中",
+        "ready": "準備就緒",
+        "start_processing": "開始處理",
+        "no_files": "無檔案",
+        "processing_progress": "處理中...",
+        "release_to_import": "釋放以匯入",
+        "drag_region": "拖放檔案至此",
+        "clear_list": "清空列表"
+    },
+    "dropzone": {
+        "title": "拖放檔案至此 或",
+        "click_select": "點擊選擇",
+        "support_hint": "支援檔案多選"
+    },
+    "sidebar": {
+        "batch_ops": "批量操作",
+        "target_language": "目標語言",
+        "select_language": "選擇語言",
+        "track_type": "軌道類型",
+        "select_type": "選擇類型",
+        "all_types": "所有軌道類型",
+        "audio": "音訊 (Audio)",
+        "subtitles": "字幕 (Subtitle)",
+        "set_default": "設為預設",
+        "batch_remove": "批量移除",
+        "reset_changes": "重置所有變更"
+    },
+    "filelist": {
+        "status": {
+            "ready": "準備就緒",
+            "processing": "處理中",
+            "done": "已完成",
+            "error": "錯誤",
+            "pending": "等待中",
+            "scanning": "掃描中"
+        },
+        "tracks_count": "個軌道",
+        "remove_file": "移除檔案",
+        "thumbnail": "縮圖"
+    },
+    "tracks": {
+        "keep": "保留",
+        "type": "類型",
+        "info": "軌道資訊",
+        "language": "語言",
+        "tags": "標記",
+        "default": "預設",
+        "forced": "強制"
+    },
+    "about": {
+        "title": "關於本專案",
+        "check_update": "檢查更新",
+        "checking": "檢查更新中...",
+        "latest": "目前已是最新版本",
+        "changelog": "更新日誌",
+        "description": "一個簡單、強大且開源的跨平台 MKV 軌道管理工具，幫助您快速整理視訊音訊軌道。",
+        "developer_info": "開發者資訊",
+        "developer_desc": "嗨！我是 Junyou。這個專案是為了讓繁瑣的檔案整理工作變得更簡單。如果您覺得這個工具對您有幫助，歡迎贊助我一杯咖啡，這將成為我持續開發與維護的動力！",
+        "thank_you": "感謝您的支持與鼓勵"
+    },
+    "theme": {
+        "light": "亮色模式",
+        "dark": "深色模式",
+        "system": "跟隨系統"
+    }
+}

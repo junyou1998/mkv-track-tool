@@ -18,6 +18,11 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url))
 // │
 process.env.APP_ROOT = path.join(__dirname, '..')
 
+// Set App Name for Development
+if (process.env.VITE_DEV_SERVER_URL) {
+  app.setName('MKV Track Tool');
+}
+
 // 🚧 Use ['ENV_NAME'] avoid vite:define plugin - Vite@2.x
 export const VITE_DEV_SERVER_URL = process.env['VITE_DEV_SERVER_URL']
 export const MAIN_DIST = path.join(process.env.APP_ROOT, 'dist-electron')
@@ -30,8 +35,10 @@ let isProcessing = false; // Track processing state
 
 function createWindow() {
   win = new BrowserWindow({
+    width: 1200,
+    height: 800,
     titleBarStyle: 'hiddenInset',
-    icon: path.join(process.env.VITE_PUBLIC, 'electron-vite.svg'),
+    icon: path.join(process.env.VITE_PUBLIC, 'icon.png'),
     webPreferences: {
       preload: path.join(__dirname, 'preload.mjs'),
     },
@@ -112,6 +119,10 @@ app.whenReady().then(() => {
   ipcMain.on('set-processing-state', (_event, state: boolean) => {
     isProcessing = state;
   });
+
+  if (process.platform === 'darwin') {
+    app.dock.setIcon(path.join(process.env.VITE_PUBLIC, 'icon.png'));
+  }
 
   createWindow();
 })

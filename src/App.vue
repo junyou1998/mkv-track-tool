@@ -3,10 +3,13 @@ import DropZone from './components/DropZone.vue';
 import FileList from './components/FileList.vue';
 import SidebarActions from './components/SidebarActions.vue';
 import ThemeSwitcher from './components/ThemeSwitcher.vue';
+import AboutModal from './components/AboutModal.vue';
+import LanguageSwitcher from './components/LanguageSwitcher.vue';
 import { useFileStore } from './stores/fileStore';
 import { ref, onMounted, onUnmounted } from 'vue';
 
 const fileStore = useFileStore();
+const showAboutModal = ref(false);
 const dragCounter = ref(0); // Reactive counter not needed for logic but good for debugging if needed, but simple var is fine. Wait, in vue setup script let is fine.
 // Actually, let's keep consistency with previous code.
 
@@ -80,7 +83,7 @@ onUnmounted(() => {
                 clip-rule="evenodd" />
             </svg>
           </div>
-          <span class="text-lg font-bold text-gray-700 dark:text-gray-200">釋放以匯入</span>
+          <span class="text-lg font-bold text-gray-700 dark:text-gray-200">{{ $t('app.release_to_import') }}</span>
         </div>
       </div>
     </Transition>
@@ -94,9 +97,9 @@ onUnmounted(() => {
       <!-- App Header -->
       <div class="p-6 pb-4 pt-8">
         <h1 class="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-purple-600">
-          MKV Track Tool
+          {{ $t('app.title') }}
         </h1>
-        <p class="text-xs text-gray-400 mt-1">版本 v1.0.0</p>
+        <p class="text-xs text-gray-400 mt-1">{{ $t('app.version') }} v1.0.0</p>
       </div>
 
       <!-- Scrollable Sidebar Content -->
@@ -117,22 +120,26 @@ onUnmounted(() => {
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
               d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
           </svg>
-          清空列表
+          {{ $t('app.clear_list') }}
         </button>
       </div>
 
       <!-- Sidebar Footer -->
       <div
-        class="p-4 border-t border-gray-200 dark:border-gray-700 flex justify-between items-center bg-gray-50/50 dark:bg-gray-800/50">
+        class="p-4 border-t border-gray-200 dark:border-gray-700 flex justify-between items-center bg-gray-50/50 dark:bg-gray-800/50 gap-2">
         <ThemeSwitcher />
-        <a href="#" class="text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition-colors">
+        <LanguageSwitcher />
+        <div class="flex-1"></div>
+        <button @click="showAboutModal = true" class="text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition-colors cursor-pointer p-1 rounded-md hover:bg-gray-200/50 dark:hover:bg-gray-700/50">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
               d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
           </svg>
-        </a>
+        </button>
       </div>
     </aside>
+
+    <AboutModal v-model="showAboutModal" />
 
     <!-- Main Content Area -->
     <main class="flex-1 flex flex-col overflow-hidden relative bg-gray-50 dark:bg-gray-900">
@@ -141,13 +148,13 @@ onUnmounted(() => {
         class="h-16 border-b border-gray-200 dark:border-gray-700 flex justify-between items-center px-6 bg-white dark:bg-gray-800/50 backdrop-blur-sm z-10 transition-colors duration-300">
         <div class="flex items-center gap-4 w-full">
           <div class="flex items-center gap-3">
-            <h2 class="text-sm font-semibold text-gray-700 dark:text-gray-200 uppercase tracking-wide">處理隊列</h2>
+            <h2 class="text-sm font-semibold text-gray-700 dark:text-gray-200 uppercase tracking-wide">{{ $t('app.queue') }}</h2>
             <span class="px-2 py-0.5 rounded-full text-xs font-medium transition-colors" :class="{
               'bg-gray-100 dark:bg-gray-700 text-gray-500 dark:text-gray-400': fileStore.files.length === 0,
               'bg-yellow-100 dark:bg-yellow-900/30 text-yellow-600 dark:text-yellow-400': fileStore.files.length > 0 && !fileStore.isProcessing,
               'bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400': fileStore.isProcessing
             }">
-              {{ fileStore.files.length === 0 ? '閒置' : (fileStore.isProcessing ? '處理中' : '準備就緒') }}
+              {{ fileStore.files.length === 0 ? $t('app.idle') : (fileStore.isProcessing ? $t('app.processing') : $t('app.ready')) }}
             </span>
           </div>
 
@@ -157,7 +164,7 @@ onUnmounted(() => {
           <div v-if="fileStore.isProcessing" class="flex items-center gap-4 min-w-[300px]">
             <div class="flex-1">
               <div class="flex justify-between text-xs mb-1.5">
-                <span class="font-medium text-blue-600 dark:text-blue-400">處理中...</span>
+                <span class="font-medium text-blue-600 dark:text-blue-400">{{ $t('app.processing_progress') }}</span>
                 <span class="text-gray-500">{{ fileStore.queueStats.completed }} / {{ fileStore.queueStats.total
                 }}</span>
               </div>
@@ -178,7 +185,7 @@ onUnmounted(() => {
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                 d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
             </svg>
-            {{ fileStore.files.length === 0 ? '無檔案' : '開始處理' }}
+            {{ fileStore.files.length === 0 ? $t('app.no_files') : $t('app.start_processing') }}
           </button>
         </div>
       </header>

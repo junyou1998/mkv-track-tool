@@ -1,0 +1,73 @@
+{
+    "app": {
+        "change_language": "切换语言",
+        "title": "MKV Track Tool",
+        "version": "版本",
+        "queue": "处理队列",
+        "idle": "闲置",
+        "processing": "处理中",
+        "ready": "准备就绪",
+        "start_processing": "开始处理",
+        "no_files": "无文件",
+        "processing_progress": "处理中...",
+        "release_to_import": "释放以导入",
+        "drag_region": "拖放文件至此",
+        "clear_list": "清空列表"
+    },
+    "dropzone": {
+        "title": "拖放文件至此 或",
+        "click_select": "点击选择",
+        "support_hint": "支持多文件选择"
+    },
+    "sidebar": {
+        "batch_ops": "批量操作",
+        "target_language": "目标语言",
+        "select_language": "选择语言",
+        "track_type": "轨道类型",
+        "select_type": "选择类型",
+        "all_types": "所有轨道类型",
+        "audio": "音频 (Audio)",
+        "subtitles": "字幕 (Subtitle)",
+        "set_default": "设为默认",
+        "batch_remove": "批量移除",
+        "reset_changes": "重置所有变更"
+    },
+    "filelist": {
+        "status": {
+            "ready": "准备就绪",
+            "processing": "处理中",
+            "done": "已完成",
+            "error": "错误",
+            "pending": "等待中",
+            "scanning": "扫描中"
+        },
+        "tracks_count": "个轨道",
+        "remove_file": "移除文件",
+        "thumbnail": "缩略图"
+    },
+    "tracks": {
+        "keep": "保留",
+        "type": "类型",
+        "info": "轨道信息",
+        "language": "语言",
+        "tags": "标记",
+        "default": "默认",
+        "forced": "强制"
+    },
+    "about": {
+        "title": "关于本专案",
+        "check_update": "检查更新",
+        "checking": "检查更新中...",
+        "latest": "当前已是最新版本",
+        "changelog": "更新日志",
+        "description": "一个简单、强大且开源的跨平台 MKV 轨道管理工具，帮助您快速整理视频音频轨道。",
+        "developer_info": "开发者信息",
+        "developer_desc": "嗨！我是 Junyou。这个专案是为了让繁琐的文件整理工作变得更简单。如果您觉得这个工具对您有帮助，欢迎赞助我一杯咖啡，这将成为我持续开发与维护的动力！",
+        "thank_you": "感谢您的支持与鼓励"
+    },
+    "theme": {
+        "light": "亮色模式",
+        "dark": "深色模式",
+        "system": "跟随系统"
+    }
+}

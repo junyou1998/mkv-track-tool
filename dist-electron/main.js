@@ -163,6 +163,9 @@ class MkvTool {
 }
 const __dirname$1 = path$1.dirname(fileURLToPath(import.meta.url));
 process.env.APP_ROOT = path$1.join(__dirname$1, "..");
+if (process.env.VITE_DEV_SERVER_URL) {
+  app.setName("MKV Track Tool");
+}
 const VITE_DEV_SERVER_URL = process.env["VITE_DEV_SERVER_URL"];
 const MAIN_DIST = path$1.join(process.env.APP_ROOT, "dist-electron");
 const RENDERER_DIST = path$1.join(process.env.APP_ROOT, "dist");
@@ -171,8 +174,10 @@ let win;
 let isProcessing = false;
 function createWindow() {
   win = new BrowserWindow({
+    width: 1200,
+    height: 800,
     titleBarStyle: "hiddenInset",
-    icon: path$1.join(process.env.VITE_PUBLIC, "electron-vite.svg"),
+    icon: path$1.join(process.env.VITE_PUBLIC, "icon.png"),
     webPreferences: {
       preload: path$1.join(__dirname$1, "preload.mjs")
     }
@@ -234,6 +239,9 @@ app.whenReady().then(() => {
   ipcMain.on("set-processing-state", (_event, state) => {
     isProcessing = state;
   });
+  if (process.platform === "darwin") {
+    app.dock.setIcon(path$1.join(process.env.VITE_PUBLIC, "icon.png"));
+  }
   createWindow();
 });
 export {

@@ -1,0 +1,73 @@
+{
+    "app": {
+        "change_language": "Change Language",
+        "title": "MKV Track Tool",
+        "version": "Version",
+        "queue": "Processing Queue",
+        "idle": "Idle",
+        "processing": "Processing",
+        "ready": "Ready",
+        "start_processing": "Start Processing",
+        "no_files": "No Files",
+        "processing_progress": "Processing...",
+        "release_to_import": "Release to Import",
+        "drag_region": "Drag Files Here",
+        "clear_list": "Clear List"
+    },
+    "dropzone": {
+        "title": "Drag files here or",
+        "click_select": "click to select",
+        "support_hint": "Support multiple files selection"
+    },
+    "sidebar": {
+        "batch_ops": "Batch Operations",
+        "target_language": "Target Language",
+        "select_language": "Select Language",
+        "track_type": "Track Type",
+        "select_type": "Select Type",
+        "all_types": "All Types",
+        "audio": "Audio",
+        "subtitles": "Subtitles",
+        "set_default": "Set Default",
+        "batch_remove": "Batch Remove",
+        "reset_changes": "Reset All Changes"
+    },
+    "filelist": {
+        "status": {
+            "ready": "Ready",
+            "processing": "Processing",
+            "done": "Done",
+            "error": "Error",
+            "pending": "Pending",
+            "scanning": "Scanning"
+        },
+        "tracks_count": "tracks",
+        "remove_file": "Remove File",
+        "thumbnail": "Thumbnail"
+    },
+    "tracks": {
+        "keep": "Keep",
+        "type": "Type",
+        "info": "Track Info",
+        "language": "Language",
+        "tags": "Tags",
+        "default": "Default",
+        "forced": "Forced"
+    },
+    "about": {
+        "title": "About This Project",
+        "check_update": "Check Update",
+        "checking": "Checking...",
+        "latest": "You are on the latest version",
+        "changelog": "Changelog",
+        "description": "A simple, powerful, and open-source cross-platform MKV track management tool to help you organize video and audio tracks quickly.",
+        "developer_info": "Developer Info",
+        "developer_desc": "Hi! I'm Junyou. This project aims to simplify tedious file renaming tasks. If you find this tool helpful, feel free to buy me a coffee to support my continued development!",
+        "thank_you": "Thank you for your support"
+    },
+    "theme": {
+        "light": "Light Mode",
+        "dark": "Dark Mode",
+        "system": "System Default"
+    }
+}
