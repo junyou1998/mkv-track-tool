@@ -2,12 +2,14 @@
   "name": "mkv-track-tool",
   "productName": "MKV Track Tool",
   "description": "A tool to manage and batch process MKV tracks.",
+  "author": "junyou",
   "private": true,
   "version": "0.0.1",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc && vite build && electron-builder",
+    "build:ci": "vue-tsc && vite build && electron-builder -p never",
     "preview": "vite preview"
   },
   "dependencies": {

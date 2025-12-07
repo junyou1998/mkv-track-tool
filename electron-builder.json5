@@ -21,14 +21,17 @@
     "dist-electron"
   ],
   "mac": {
+    "icon": "public/icon.png",
     "target": [
       "dmg"
     ],
     "artifactName": "${productName}-Mac-${version}-Installer.${ext}"
   },
   "win": {
+    "icon": "public/icon.png",
     "target": [
-      {
+      "nsis"
+    ],
         "target": "nsis",
         "arch": [
           "x64"
