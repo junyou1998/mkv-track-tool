@@ -42,6 +42,10 @@
     "appId": "com.junyou.mkvtracktool",
     "productName": "MKV Track Tool",
     "asar": true,
+    "asarUnpack": [
+      "**/node_modules/ffmpeg-static/**",
+      "**/node_modules/ffprobe-static/**"
+    ],
     "directories": {
       "output": "release/${version}"
     },
