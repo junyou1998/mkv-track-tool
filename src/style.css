@@ -1,0 +1,16 @@
+@import "tailwindcss";
+
+@variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-sans: "Inter", "system-ui", "sans-serif";
+}
+
+:root {
+  font-family: var(--font-sans);
+  @apply bg-gray-50 text-gray-900 dark:bg-gray-900 dark:text-white transition-colors duration-300;
+}
+
+body {
+  @apply m-0 min-h-screen;
+}
