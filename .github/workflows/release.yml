@@ -31,7 +31,7 @@ jobs:
         shell: pwsh
 
       - name: Build
-        run: npm run build
+        run: npm run build:ci
         # Removed GH_TOKEN to prevent electron-builder from publishing
 
       - name: Release
@@ -67,7 +67,7 @@ jobs:
           chmod +x bin/mac/mkvmerge
 
       - name: Build
-        run: npm run build
+        run: npm run build:ci
         # Removed GH_TOKEN
 
       - name: Release
